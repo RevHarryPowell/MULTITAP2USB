@@ -15,5 +15,5 @@ The communication protocol is, unsurprisingly, similar to that of the standard S
 
 Every full cycle, the controller inputs are latched as normal.  Mux is first driven high, and controllers 2 and 3 are simultaneously read on data0 and data1, respectively.  Mux is then driven low, and controllers 4 and 5 are simultaneously read on data0 and data1, respectively.  Each individual controller's data stream is read using the [normal SNES controller communication protocol](https://www.fpgalover.com/ip-cores/snes-controller-core).
 
-### Multitap communicatiod diagram
+### Multitap communication diagram
 ![Multitap protocol](https://user-images.githubusercontent.com/52169065/222495704-12407d4d-3fc5-48ef-8f2d-e29607d0f0c0.png)
