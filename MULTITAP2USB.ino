@@ -106,8 +106,6 @@ void readSNES(){
     delayMicroseconds(clockDelay);
     digitalWrite(snesClock, LOW);                    
   }
-
-  //digitalWrite(snesClock, HIGH);  //per spec, clock should stay high during this period.  Test this.
 }
 
 // Send commands to USB gamepad interface 1
