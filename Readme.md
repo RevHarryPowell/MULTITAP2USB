@@ -5,5 +5,4 @@ My testing (with a SAMD21) shows a 1000hz polling rate, so there should be no pe
 
 NOTE: By default, only 3 HID gamepads are created due to USB endpoint limitations.  To enable the 4th gamepad, CDC serial must be disabled for your microcontroller ([see this discussion](https://github.com/arduino/ArduinoCore-avr/pull/383/files)).  Instructions on how to do this are in the sketch.
 
-
-In progress: Only initialize HID gamepads for connecte4d SNES controllers (i.e. 2 HID gamepads will appear if 2 controllers are connected)
+**Work in progress**: Only initialize HID gamepads for connected SNES controllers (i.e. 2 HID gamepads will appear if 2 controllers are connected)
