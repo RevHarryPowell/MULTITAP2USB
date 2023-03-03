@@ -53,7 +53,6 @@ int pad5Register;           // SNES controller 5 button states
  
 
 void setup(){
-
   // configure pins
   pinMode(snesData0, INPUT);
   pinMode(snesData1, INPUT);
@@ -88,8 +87,10 @@ void readSNES(){
   digitalWrite(snesLatch, HIGH);          // latch pulse 
   delayMicroseconds(latchDelay);
   digitalWrite(snesLatch, LOW);
-  
-  for (int x = 0; x < 12; x++) {                        // read in the 12 controller buttons that were latched
+
+  digitalWrite(snesClock, LOW);
+  delayMicroseconds(clockDelay);  
+  for (int x = 0; x < 17; x++) {                        // read 17 bits from the controller shift register. Bit 0-11 are button states, bit 16 is connection status (0 = controller connected, 1 = controller not connected)
     bitWrite(pad2Register, x, digitalRead(snesData0));  // store the current controller 2 button state on the data input into the register
     bitWrite(pad3Register, x, digitalRead(snesData1));  // store the current controller 3 button state on the data input into the register
     digitalWrite(snesClock, HIGH);                      // generate a clock pulse to bring the next button to the data input
@@ -99,13 +100,14 @@ void readSNES(){
 
   digitalWrite(snesMux, LOW);             // Set mux pin low to read controllers 4 and 5
 
-  for (int x = 0; x < 12; x++) {                        // read in the 12 controller buttons that were latched
+  for (int x = 0; x < 17; x++) {                        // read 17 bits from the controller shift register. Bit 0-11 are button states, bit 16 is connection status (0 = controller connected, 1 = controller not connected)
     bitWrite(pad4Register, x, digitalRead(snesData0));  // store the current controller 4 button state on the data input into the register
     bitWrite(pad5Register, x, digitalRead(snesData1));  // store the current controller 5 button state on the data input into the register
     digitalWrite(snesClock, HIGH);                      // generate a clock pulse to bring the next button to the data input
     delayMicroseconds(clockDelay);
     digitalWrite(snesClock, LOW);                    
   }
+  digitalWrite(snesClock, HIGH); 
 }
 
 // Send commands to USB gamepad interface 1
