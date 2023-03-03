@@ -1,5 +1,5 @@
 # MULTITAP2USB
-An Arduino sketch that creates a SNES Multitap to 4 HID USB gamepad adapter.  This was developed for use with a Seeeduino Xiao SAMD21 microcontroller, but it should work with any board compatible with [NicoHood's HID-Project Library](https://github.com/NicoHood/HID).  This was tested with a [Hori Multitap](https://m.media-amazon.com/images/I/61Niix1JEYL._SL1500_.jpg), but it should work with all SNES Multitaps, as the communication protocol is standardized and documented by Nintendo.  This sketch doesn't strictly follow the communication specifications, but seems to work regardless.
+An Arduino sketch that creates a SNES Multitap to 4 HID USB gamepad adapter.  This was developed for use with a Seeeduino Xiao SAMD21 microcontroller, but it should work with any board compatible with [NicoHood's HID-Project Library](https://github.com/NicoHood/HID).  This was tested with a [Hori Multitap](https://www.lukiegames.com/assets/images/snes_super_link_bps_adap.jpg), but it should work with all SNES Multitaps, as the communication protocol is standardized and documented by Nintendo.  This sketch doesn't strictly follow the SNES communication specifications, but seems to work regardless.
 
 My testing (with a SAMD21) shows a 1000hz polling rate, so there should be no perceptible input lag.
 
